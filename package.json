@@ -1,0 +1,36 @@
+{
+  "name": "opencode-codemaxxing",
+  "version": "0.1.0",
+  "description": "An opencode plugin that continuously improves its own project by autonomously injecting improvement prompts until a configurable token/round budget is exhausted.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "opencode",
+    "plugin",
+    "autonomous",
+    "self-improving",
+    "codemaxxing",
+    "agents"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.4.10",
+    "@opencode-ai/sdk": "^1.4.10",
+    "@types/node": "^26.4.0",
+    "typescript": "^5.5.0"
+  }
+}
