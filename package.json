@@ -14,6 +14,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bencodess/opencode-codemaxxing.git"
+  },
   "keywords": [
     "opencode",
     "plugin",
@@ -25,7 +29,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@opencode-ai/plugin": "^1.4.10",
