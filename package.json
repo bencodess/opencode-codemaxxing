@@ -1,5 +1,5 @@
 {
-  "name": "opencode-codemaxxing",
+  "name": "@bencodess/opencode-codemaxxing",
   "version": "0.1.0",
   "description": "An opencode plugin that continuously improves its own project by autonomously injecting improvement prompts until a configurable token/round budget is exhausted.",
   "type": "module",
@@ -10,6 +10,9 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     }
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "files": [
     "dist"
