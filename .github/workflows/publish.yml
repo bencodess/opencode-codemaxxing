@@ -1,0 +1,38 @@
+name: Publish to npm (trusted publishing)
+
+# Publishes the package to the public npm registry using Trusted Publishing
+# (OIDC) — no API token is stored as a secret, and provenance is generated
+# automatically.
+#
+# Trigger: push a semver tag (e.g. `git tag v0.2.0 && git push --tags`).
+#
+# One-time setup (npm web UI, can't be automated):
+#   1. Create the package scope/name `opencode-codemaxxing` if it doesn't exist.
+#   2. On the package page: Access -> "Add Trusted Publishing" (or the
+#      "publish" config under the package's "Access" section), and connect:
+#        - Provider: GitHub
+#        - Repository: bencodess/opencode-codemaxxing
+#        - Workflow: publish.yml
+#        - Environment: (leave blank / use default)
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # required for npm trusted publishing / provenance
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - run: npm ci
+      - run: npm publish --provenance --access public
